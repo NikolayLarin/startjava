@@ -1,42 +1,29 @@
 public class Calculator {
+
     public static void main(String[] args) {
-
         int a = 28;
-        int b = 13;        
-        char plus = '+';
-        char minus = '-';
-        char multiply = '*';
-        char divide = '/';
-        char aPower3 = '^';
-        char remainder = '%';
-        char noOperations = 'Y';
+        int b = 13;
+        short power = 2;
+        char operation = '^'; // Choose operation: +, -, *. /, ^, %
 
-        if (plus == '+') {
+        if (operation == '+') {
             System.out.println(a + " + " + b + " = " + (a + b));
-        } 
-
-        if (minus == '-') {
+        } else if (operation == '-') {
             System.out.println(a + " - " + b + " = " + (a - b));
-        } 
-
-        if (multiply == '*') {
+        } else if (operation == '*') {
             System.out.println(a + " * " + b + " = " + (a * b));
-        }
-
-        if (divide == '/') {
+        } else if (operation == '/') {
             System.out.println(a + " / " + b + " = " + (a / b));
-        }
-
-        if (aPower3 == '^') {
-            System.out.println(a + "^3 " + " = " + (a * a * a));
-        }
-
-        if (remainder == '%') {
+        } else if (operation == '^') {
+            long result = a;
+            for (short i = 1; i < power; i++) {
+                result = result * a;
+            }                
+            System.out.println(a + "^" + power + " = " + result);
+        } else if (operation == '%') {
             System.out.println("The remainder of dividing " + a + " / " + b + " = " + (a % b));
-        } 
-
-        if (noOperations == 'Y') {
+        } else {
             System.out.println("No operations applied on a & b.");
-        }        
+        }
     }
 }
