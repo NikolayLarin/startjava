@@ -17,7 +17,7 @@ public class Calculator {
             long result = 1;
             if (b > 0) {
                 for (int i = 1; i <= b; i++) {
-                result *= a;
+                    result *= a;
                 }                
             }
             System.out.println(a + "^" + b + " = " + result);

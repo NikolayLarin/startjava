@@ -3,7 +3,7 @@ public class Cycle {
     public static void main(String[] args) {      
         for (int i = 0; i <= 20; i++) {
             System.out.print(i + "; ");
-            if (i == 12){
+            if (i == 12) {
                 System.out.println();
             }
         }
@@ -20,7 +20,7 @@ public class Cycle {
         int sumOddNumbers = 0;
         System.out.print("The sum of such odd numbers: ");
         do {                    
-            if (rangeStart % 2 !=0) {
+            if (rangeStart % 2 != 0) {
                 sumOddNumbers += rangeStart;                
                 System.out.print(rangeStart + "; ");
             }

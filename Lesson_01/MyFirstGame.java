@@ -1,19 +1,19 @@
 public class MyFirstGame {
 
     public static void main(String[] args) {
-        int a = 65;        
+        int inputNumber = 65;        
         int hiddenNumber = 61;
 
-        while (a != hiddenNumber) {
-            if (a > hiddenNumber) {
+        while (inputNumber != hiddenNumber) {
+            if (inputNumber > hiddenNumber) {
                 System.out.println("Entered number is more than hidden.");
-                a -= 1;
-            } else if (a < hiddenNumber) {
+                inputNumber -= 1;
+            } else if (inputNumber < hiddenNumber) {
                 System.out.println("Entered number is less than hidden.");
-                a += 1;
+                inputNumber += 1;
             }                        
         }
         System.out.println("\n" + "Congratulations! You guessed!");
-        System.out.println("The hidden number is " + a + "." + "\n");
+        System.out.println("The hidden number is " + inputNumber + "." + "\n");
     }
 }
