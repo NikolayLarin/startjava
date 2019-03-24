@@ -9,38 +9,36 @@ public class Wolf {
         return sex;
     }
 
+    public void setSex(String sex) {
+        if (sex == "male" || sex == "shemale") {
+            this.sex = sex;
+        } else {
+            System.out.println("Incorrect sex, try again.");
+        }
+    }    
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
         return age;
     }
 
-    public String getColoring() {
-        return coloring;
-    }
-
-    public void setSex(String sex) {
-        if (sex == "male" || sex == "shemale") {
-            this.sex = sex;
-        } else {
-            System.out.println("Incorrect sex, try again.");
-            System.exit(0);         
-        }
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
     public void setAge(int age) {
         if (age > 8 || age <= 0) {
-            System.out.println("Incorrect age, try again.");
-            System.exit(0);
+            System.out.println("Incorrect age, try again.");            
         } else {
             this.age = age;
         }
+    }
+
+    public String getColoring() {
+        return coloring;
     }
 
     public void setColoring(String coloring) {

@@ -2,7 +2,7 @@ public class WolfTest {
 
     public static void main(String[] args) {
         Wolf wolfGrey = new Wolf();
-        wolfGrey.setSex("male");
+        wolfGrey.setSex("mole");
         wolfGrey.setName("Fast");
         wolfGrey.setAge(7);
         wolfGrey.setColoring("grey");
