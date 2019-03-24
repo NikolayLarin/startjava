@@ -21,7 +21,7 @@ public class Wolf {
         return coloring;
     }
 
-    void setSex(String sex) {
+    public void setSex(String sex) {
         if (sex == "male" || sex == "shemale") {
             this.sex = sex;
         } else {
@@ -30,11 +30,11 @@ public class Wolf {
         }
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
     
-    void setAge(int age) {
+    public void setAge(int age) {
         if (age > 8 || age <= 0) {
             System.out.println("Incorrect age, try again.");
             System.exit(0);
