@@ -3,7 +3,7 @@ public class Calculator {
 
     private int num1;
     private int num2;
-    private char operation; // Choose operation: +, -, *. /, ^, %
+    private String operation; // Choose operation: +, -, *. /, ^, %
 
     public void setNum1(int num1) {
         this.num1 = num1;
@@ -14,32 +14,35 @@ public class Calculator {
 
     }
 
-    public void setOperation(char operation) {
+    public void setOperation(String operation) {
         this.operation = operation;
     }
 
     public void calculator() {
     switch (operation) {
-        case '+':
+        case "+":
             System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
             break;
-        case '-':
+        case "-":
             System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
             break;
-        case '*':
+        case "*":
             System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
             break;
-        case '/':
+        case "/":
             System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
             break;
-        case '^':
+        case "^":
             long result = 1;
             if (num2 > 0) {
                 for (int i = 1; i <= num2; i++) {
                     result *= num1;
                 }                
-            }
+            }            
             System.out.println(num1 + "^" + num2 + " = " + result);
+            break;
+        case "%":
+            System.out.println("The remainder of dividing " + num1 + " / " + num2 + " = " + (num1 % num2));
             break;
         default:
             System.out.println("No operations applied on numbers");
