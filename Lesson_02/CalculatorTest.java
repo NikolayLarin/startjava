@@ -4,37 +4,22 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         Calculator calcPure = new Calculator();
-        Scanner scanEnter = new Scanner(System.in);
-        boolean isCountAgain = true;
-        boolean isPresentYorN = false;
-        String countAgain;
+        Scanner scanInput = new Scanner(System.in);
+        ChooseOneYorN chooserYN = new ChooseOneYorN();
+        boolean isCountAgain;
 
-
-        while (isCountAgain == true) {
+        do {
+            System.out.println("\n" + "It's a simple calculator.");
+            System.out.println("It can perform math operations");
+            System.out.println("(+, -, *, /, ^, %) on natural numbers." + "\n");            
             System.out.print("Enter first number: ");
-            calcPure.setNum1(scanEnter.nextInt());
-            System.out.print("Enter math operation (+, -, *, /, ^, %): ");
-            calcPure.setOperation(scanEnter.next());
+            calcPure.setNum1(scanInput.nextInt());
+            System.out.print("Enter math operation: ");
+            calcPure.setOperation(scanInput.next());
             System.out.print("Enter second number: ");
-            calcPure.setNum2(scanEnter.nextInt());
-            calcPure.calculator();            
-            while (isPresentYorN == false) { 
-                System.out.println("Do you want to continue? (Y/N): ");
-                countAgain = scanEnter.next();
-                switch (countAgain) {
-                    case "Y":
-                        isPresentYorN = true;
-                        isCountAgain = true;
-                        break;
-                    case "N":
-                        isPresentYorN = true;
-                        isCountAgain = false;
-                        break;
-                    default:
-                        isPresentYorN = false;
-                        break;
-                }
-            }
-        }
+            calcPure.setNum2(scanInput.nextInt());
+            calcPure.calculator();
+            isCountAgain = chooserYN.chooseOneYorN();
+        } while (isCountAgain == true);
     }
 }
