@@ -5,8 +5,7 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calcPure = new Calculator();
         Scanner scanInput = new Scanner(System.in);
-        ChooseOneYorN chooserYN = new ChooseOneYorN();
-        boolean isCountAgain;
+        char isCountAgain;
 
         do {
             System.out.println("\n" + "It's a simple calculator.");
@@ -19,7 +18,11 @@ public class CalculatorTest {
             System.out.print("Enter second number: ");
             calcPure.setNum2(scanInput.nextInt());
             calcPure.calculator();
-            isCountAgain = chooserYN.chooseOneYorN();
-        } while (isCountAgain == true);
+            do  {
+                System.out.print("Do you want to continue? (Y/N): ");
+                isCountAgain = scanInput.next().charAt(0);
+            } while (isCountAgain != 'Y' && isCountAgain != 'N');
+        } while (isCountAgain == 'Y');
+        System.out.print(isCountAgain);
     }
 }

@@ -1,6 +1,5 @@
 public class Calculator {
 
-
     private int num1;
     private int num2;
     private String operation; // Choose operation: +, -, *. /, ^, %
@@ -11,7 +10,6 @@ public class Calculator {
 
     public void setNum2(int num2) {
         this.num2 = num2;
-
     }
 
     public void setOperation(String operation) {
@@ -19,35 +17,32 @@ public class Calculator {
     }
 
     public void calculator() {
-    switch (operation) {
-        case "+":
-            System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
-            break;
-        case "-":
-            System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
-            break;
-        case "*":
-            System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
-            break;
-        case "/":
-            System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
-            break;
-        case "^":
-            long result = 1;
-            if (num2 > 0) {
-                for (int i = 1; i <= num2; i++) {
-                    result *= num1;
-                }                
-            }            
-            System.out.println(num1 + "^" + num2 + " = " + result);
-            break;
-        case "%":
-            System.out.println("The remainder of dividing " + num1 + " / " + num2 + " = " + (num1 % num2));
-            break;
-        default:
-            System.out.println("No operations applied on numbers");
-            break;
+        switch (operation) {
+            case "+":
+                System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+                break;
+            case "-":
+                System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+                break;
+            case "*":
+                System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+                break;
+            case "/":
+                System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+                break;
+            case "^":
+                long result = 1;
+                    for (int i = 1; i <= num2; i++) {
+                        result *= num1;
+                    }
+                System.out.println(num1 + "^" + num2 + " = " + result);
+                break;
+            case "%":
+                System.out.println("The remainder of dividing " + num1 + " / " + num2 + " = " + (num1 % num2));
+                break;
+            default:
+                System.out.println("No operations applied on numbers");
+                break;
         }
     }
-
 }
