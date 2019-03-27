@@ -32,9 +32,9 @@ public class Calculator {
                 break;
             case "^":
                 long result = 1;
-                    for (int i = 1; i <= num2; i++) {
-                        result *= num1;
-                    }
+                for (int i = 1; i <= num2; i++) {
+                    result *= num1;
+                }
                 System.out.println(num1 + "^" + num2 + " = " + result);
                 break;
             case "%":
