@@ -20,11 +20,7 @@ public class Jaeger {
     }
 
     public void setMarkType(String markType) {
-        if (markType == "Mark-4" || markType == "Mark-6") {
-            this.modelName = modelName;
-        } else {
-            System.out.println("Incorrect Mark! Use only Mark-2 or Mark-7 Jaeger types.");
-        }        
+        this.markType = markType;
     }
 
     public String getMarkType() {
@@ -78,8 +74,8 @@ public class Jaeger {
     public void setStrength(int strength) {
         if (strength >= 3 && strength <= 10) {
             this.strength = strength;
-        } else {
-            System.out.println("Incorrect strength! It mast be from 3 to 10 units only.");
+        } else {            
+            System.out.println("\n" + "Incorrect strength at " + modelName + "! It mast be from 3 to 10 units only.");
         }
     }
 
@@ -90,8 +86,8 @@ public class Jaeger {
     public void setArmor(int armor) {
         if (armor >= 5 && armor <= 10) {
             this.armor = armor;
-        } else {
-            System.out.println("Incorrect armor! It mast be from 5 to 10 units only.");
+        } else {            
+            System.out.println("\n" + "Incorrect armor at " + modelName + "! It mast be from 5 to 10 units only.");
         }
     }
 
