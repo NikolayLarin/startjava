@@ -5,7 +5,7 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calcPure = new Calculator();
         Scanner scanInput = new Scanner(System.in);
-        char userChoise;
+        char userChoice;
 
         do {
             System.out.println("\n" + "It's a simple calculator.");
@@ -20,8 +20,8 @@ public class CalculatorTest {
             calcPure.calculator();
             do  {
                 System.out.print("Do you want to continue? (Y/N): ");
-                userChoise = scanInput.next().charAt(0);
-            } while (userChoise != 'Y' && userChoise != 'N');
-        } while (userChoise == 'Y');        
+                userChoice = scanInput.next().charAt(0);
+            } while (userChoice != 'Y' && userChoice != 'N');
+        } while (userChoice == 'Y');        
     }
 }
