@@ -1,51 +1,51 @@
 public class JaegerTest {
 
     public static void main(String[] args) {
-        Jaeger jaegerOne = new Jaeger();
-        jaegerOne.setModelName("Gipsy Avenger");
-        jaegerOne.setMarkType("Mark-5");
-        jaegerOne.setOrigin("Japan");
-        jaegerOne.setHeight(81.77f);
-        jaegerOne.setWeight(2004);
-        jaegerOne.setSpeed(8);
-        jaegerOne.setStrength(12);
-        jaegerOne.setArmor(7);
+        Jaeger jipsyAvenger = new Jaeger();
+        jipsyAvenger.setModelName("Gipsy Avenger");
+        jipsyAvenger.setMarkType("Mark-5");
+        jipsyAvenger.setOrigin("Japan");
+        jipsyAvenger.setHeight(81.77f);
+        jipsyAvenger.setWeight(2004);
+        jipsyAvenger.setSpeed(8);
+        jipsyAvenger.setStrength(12);
+        jipsyAvenger.setArmor(7);
         
-        Jaeger jaegerTwo = new Jaeger();
-        jaegerTwo.setModelName("Crimson Typhoon");
-        jaegerTwo.setMarkType("Mark-4");
-        jaegerTwo.setOrigin("China");
-        jaegerTwo.setHeight(76.2f);
-        jaegerTwo.setWeight(1722);
-        jaegerTwo.setSpeed(9);
-        jaegerTwo.setStrength(8);
-        jaegerTwo.setArmor(15);
+        Jaeger crimsonTyphoon = new Jaeger();
+        crimsonTyphoon.setModelName("Crimson Typhoon");
+        crimsonTyphoon.setMarkType("Mark-4");
+        crimsonTyphoon.setOrigin("China");
+        crimsonTyphoon.setHeight(76.2f);
+        crimsonTyphoon.setWeight(1722);
+        crimsonTyphoon.setSpeed(9);
+        crimsonTyphoon.setStrength(8);
+        crimsonTyphoon.setArmor(15);
 
-        System.out.println("\n" + "The first jaeger's model name is " + jaegerOne.getModelName() + ".");
-        System.out.println("It's a " + jaegerOne.getMarkType() + ".");
-        System.out.println("It has a " + jaegerOne.getHeight() + " meters height");
-        System.out.println("and " + jaegerOne.getWeight() + " tons weight." + "\n");
-        System.out.println("Basic specifications of the " + jaegerOne.getModelName() + " is:");
-        System.out.println("Speed:    " + jaegerOne.getSpeed());
-        System.out.println("Strength: " + jaegerOne.getStrength());
-        System.out.println("Armor:    " + jaegerOne.getArmor() + "\n");
+        System.out.println("\n" + "The first jaeger's model name is " + jipsyAvenger.getModelName() + ".");
+        System.out.println("It's a " + jipsyAvenger.getMarkType() + ".");
+        System.out.println("It has a " + jipsyAvenger.getHeight() + " meters height");
+        System.out.println("and " + jipsyAvenger.getWeight() + " tons weight." + "\n");
+        System.out.println("Basic specifications of the " + jipsyAvenger.getModelName() + " is:");
+        System.out.println("Speed:    " + jipsyAvenger.getSpeed());
+        System.out.println("Strength: " + jipsyAvenger.getStrength());
+        System.out.println("Armor:    " + jipsyAvenger.getArmor() + "\n");
 
-        System.out.println("\n" + "The secomd jaeger's model name is " + jaegerTwo.getModelName() + ".");
-        System.out.println("It's a " + jaegerTwo.getMarkType() + ".");
-        System.out.println("It has a " + jaegerTwo.getHeight() + " meters height");
-        System.out.println("and " + jaegerTwo.getWeight() + " tons weight." + "\n");
-        System.out.println("Basic specifications of the " + jaegerTwo.getModelName() + " is:");
-        System.out.println("Speed:    " + jaegerTwo.getSpeed());
-        System.out.println("Strength: " + jaegerTwo.getStrength());
-        System.out.println("Armor:    " + jaegerTwo.getArmor() + "\n");
+        System.out.println("\n" + "The secomd jaeger's model name is " + crimsonTyphoon.getModelName() + ".");
+        System.out.println("It's a " + crimsonTyphoon.getMarkType() + ".");
+        System.out.println("It has a " + crimsonTyphoon.getHeight() + " meters height");
+        System.out.println("and " + crimsonTyphoon.getWeight() + " tons weight." + "\n");
+        System.out.println("Basic specifications of the " + crimsonTyphoon.getModelName() + " is:");
+        System.out.println("Speed:    " + crimsonTyphoon.getSpeed());
+        System.out.println("Strength: " + crimsonTyphoon.getStrength());
+        System.out.println("Armor:    " + crimsonTyphoon.getArmor() + "\n");
 
         System.out.println("The usual sequence of jaeger's actions is:");
         do {
-            jaegerOne.scanKaiju();
-            jaegerOne.go();
-            jaegerOne.run();
-            jaegerOne.fly();
-            jaegerOne.swim();            
-        } while (jaegerOne.destroyKaiju() != true);
+            jipsyAvenger.scanKaiju();
+            jipsyAvenger.go();
+            jipsyAvenger.run();
+            jipsyAvenger.fly();
+            jipsyAvenger.swim();            
+        } while (jipsyAvenger.destroyKaiju() != true);
     }
 }
