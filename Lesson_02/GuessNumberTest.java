@@ -4,7 +4,7 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner scanInput = new Scanner(System.in);
-        System.out.println("\nWelcome to the \"Guess numer\" game!");
+        System.out.println("\nWelcome to the \"Guess number\" game!");
         System.out.println("The game needs two players to play.");
 
         System.out.print("\nEnter first player name: ");

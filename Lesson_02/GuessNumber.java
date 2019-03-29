@@ -12,11 +12,11 @@ public class GuessNumber {
     public GuessNumber(String playerOneName, String playerTwoName) {
         char userChoice;
         do {
+            playerOneNumber = setPlayerNumber(playerOneName);
+            numberVersusHidden(playerOneName, playerOneNumber);
+            playerTwoNumber = setPlayerNumber(playerTwoName);
+            numberVersusHidden(playerTwoName, playerTwoNumber);
             do {
-                playerOneNumber = setPlayerNumber(playerOneName);
-                numberVersusHidden(playerOneName, playerOneNumber);
-                playerTwoNumber = setPlayerNumber(playerTwoName);
-                numberVersusHidden(playerTwoName, playerTwoNumber);
                 System.out.print("\nDo you want to continue? (Y/N): ");
                 userChoice = scanInput.next().charAt(0);
             } while (userChoice != 'Y' && userChoice != 'N');
