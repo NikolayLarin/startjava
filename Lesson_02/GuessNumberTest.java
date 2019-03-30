@@ -9,11 +9,13 @@ public class GuessNumberTest {
 
         System.out.print("\nEnter first player name: ");
         String playerOneName = scanInput.next();
-        Player playerOne = new Player(playerOneName);
+        Player playerOne = new Player(playerOneName, 0);
+        System.out.println("Hallo, " + playerOneName + "!");
 
         System.out.print("\nEnter second player name: ");
         String playerTwoName = scanInput.next();
-        Player playerTwo = new Player(playerTwoName);
+        Player playerTwo = new Player(playerTwoName, 0);
+        System.out.println("Hallo, " + playerTwoName + "!");
         GuessNumber gameForTwo = new GuessNumber(playerOneName, playerTwoName);
     }
 }
