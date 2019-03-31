@@ -3,24 +3,24 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    private Random random0_100 = new Random();
-    private int hiddenNumber = random0_100.nextInt(101);
+    private Random newRandom = new Random();
+    private int hiddenNumber = newRandom.nextInt(101);
     private Scanner scanInput = new Scanner(System.in);
+    private String playerOneName, playerTwoName;
+    private int playerOneNumber, playerTwoNumber;
+    private Player playerOne = new Player(playerOneName);
+    private Player playerTwo = new Player(playerTwoName);
 
     public GuessNumber(String playerOneName, String playerTwoName) {
-        Player playerOne = new Player(playerOneName, 0);
-        Player playerTwo = new Player(playerTwoName, 0);
-        char userChoice;
-        do {
-            playerOne.setPlayerNumber(playerOneName);
-            checkNumberVsHidden(playerOneName, playerOne.getPlayerNumber());
-            playerTwo.setPlayerNumber(playerTwoName);
-            checkNumberVsHidden(playerTwoName, playerTwo.getPlayerNumber());
-            do {
-                System.out.print("\nDo you want to continue? (Y/N): ");
-                userChoice = scanInput.next().charAt(0);
-            } while (userChoice != 'Y' && userChoice != 'N');
-        } while (userChoice == 'Y');
+        this.playerOneName = playerOneName;
+        this.playerTwoName = playerTwoName;
+    }
+
+    public void startGuessNumberGame() {
+        playerOne.setPlayerNumber(playerOneName);
+        checkNumberVsHidden(playerOneName, playerOne.getPlayerNumber());
+        playerTwo.setPlayerNumber(playerTwoName);
+        checkNumberVsHidden(playerTwoName, playerTwo.getPlayerNumber());
     }
 
     private void checkNumberVsHidden(String playerName, int playerNumber) {

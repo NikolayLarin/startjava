@@ -6,9 +6,12 @@ public class Player {
     private int playerNumber;
     private Scanner scanInput = new Scanner(System.in);
     
-    public Player(String playerName, int playerNumber) {
+    public Player(String playerName) {
         this.playerName = playerName;
-        this.playerNumber = playerNumber;
+    }
+
+    public String getPlayerName() {
+        return playerName;
     }
 
     public void setPlayerNumber(String playerName) {

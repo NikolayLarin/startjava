@@ -8,14 +8,21 @@ public class GuessNumberTest {
         System.out.println("The game needs two players to play.");
 
         System.out.print("\nEnter first player name: ");
-        String playerOneName = scanInput.next();
-        Player playerOne = new Player(playerOneName, 0);
-        System.out.println("Hallo, " + playerOneName + "!");
+        Player playerOne = new Player(scanInput.next());
+        System.out.println("Hallo, " + playerOne.getPlayerName() + "!");
 
         System.out.print("\nEnter second player name: ");
-        String playerTwoName = scanInput.next();
-        Player playerTwo = new Player(playerTwoName, 0);
-        System.out.println("Hallo, " + playerTwoName + "!");
-        GuessNumber gameForTwo = new GuessNumber(playerOneName, playerTwoName);
+        Player playerTwo = new Player(scanInput.next());
+        System.out.println("Hallo, " + playerTwo.getPlayerName() + "!");
+
+        GuessNumber gameForTwo = new GuessNumber(playerOne.getPlayerName(), playerTwo.getPlayerName());
+        char userChoice;
+        do {
+            gameForTwo.startGuessNumberGame();
+            do {
+                System.out.print("\nDo you want to continue? (Y/N): ");
+                userChoice = scanInput.next().charAt(0);
+            } while (userChoice != 'Y' && userChoice != 'N');
+        } while (userChoice == 'Y');
     }
 }
