@@ -15,7 +15,7 @@ public class GuessNumberTest {
         Player playerTwo = new Player(scanInput.next());
         System.out.println("Hallo, " + playerTwo.getPlayerName() + "!");
 
-        GuessNumber gameForTwo = new GuessNumber(playerOne.getPlayerName(), playerTwo.getPlayerName());
+        GuessNumber gameForTwo = new GuessNumber(playerOne, playerTwo);
         char userChoice;
         do {
             gameForTwo.startGuessNumberGame();

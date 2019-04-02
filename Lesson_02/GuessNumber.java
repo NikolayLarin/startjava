@@ -1,26 +1,22 @@
 import java.util.Random;
-import java.util.Scanner;
 
 public class GuessNumber {
 
     private Random newRandom = new Random();
     private int hiddenNumber = newRandom.nextInt(101);
-    private Scanner scanInput = new Scanner(System.in);
-    private String playerOneName, playerTwoName;
-    private int playerOneNumber, playerTwoNumber;
-    private Player playerOne = new Player(playerOneName);
-    private Player playerTwo = new Player(playerTwoName);
+    private Player playerOne;
+    private Player playerTwo;
 
-    public GuessNumber(String playerOneName, String playerTwoName) {
-        this.playerOneName = playerOneName;
-        this.playerTwoName = playerTwoName;
-    }
+    public GuessNumber(Player playerOne, Player playerTwo) {
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
+    }    
 
     public void startGuessNumberGame() {
-        playerOne.setPlayerNumber(playerOneName);
-        checkNumberVsHidden(playerOneName, playerOne.getPlayerNumber());
-        playerTwo.setPlayerNumber(playerTwoName);
-        checkNumberVsHidden(playerTwoName, playerTwo.getPlayerNumber());
+        playerOne.setPlayerNumber(playerOne.getPlayerName());
+        checkNumberVsHidden(playerOne.getPlayerName(), playerOne.getPlayerNumber());
+        playerTwo.setPlayerNumber(playerTwo.getPlayerName());
+        checkNumberVsHidden(playerTwo.getPlayerName(), playerTwo.getPlayerNumber());
     }
 
     private void checkNumberVsHidden(String playerName, int playerNumber) {
