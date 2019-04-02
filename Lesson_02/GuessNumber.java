@@ -14,33 +14,33 @@ public class GuessNumber {
     }    
 
     public void startGuessNumberGame() {
-        playerOne.setPlayerNumber(enterPlayerNumber(playerOne.getPlayerName()));
-        compareNumbers(playerOne.getPlayerName(), playerOne.getPlayerNumber());
-        playerTwo.setPlayerNumber(enterPlayerNumber(playerTwo.getPlayerName()));
-        compareNumbers(playerTwo.getPlayerName(), playerTwo.getPlayerNumber());
+        enterPlayerNumber(playerOne);
+        compareNumbers(playerOne);
+        enterPlayerNumber(playerTwo);
+        compareNumbers(playerTwo);
     }
 
-    private int enterPlayerNumber(String playerName) {
-        int playerNumber;
+    private void enterPlayerNumber(Player player) {
+        int number;
         do {
-            System.out.print("\n" + playerName +", enter your number: ");
-            playerNumber = scanInput.nextInt();
-            if (playerNumber < 0 | playerNumber > 100) {
-            System.out.println(playerName + ", you entered incorrect number.");
-            System.out.println("It must be from 0 to 100 inclusive. \nTry again!");
+            System.out.print("\n" + player.getName() +", enter your number: ");
+            number = scanInput.nextInt();
+            if (number < 0 || number > 100) {
+                System.out.println(player.getName() + ", you entered incorrect number.");
+                System.out.println("It must be from 0 to 100 inclusive. \nTry again!");
             }
-        } while (playerNumber < 0 | playerNumber > 100);
-        return playerNumber;
+        } while (number < 0 || number > 100);
+        player.setNumber(number);
     }
 
-    private void compareNumbers(String playerName, int playerNumber) {
-        if (playerNumber > hiddenNumber) {
+    private void compareNumbers(Player player) {
+        if (player.getNumber() > hiddenNumber) {
             System.out.println("Entered number is more than hidden.");
-        } else if (playerNumber < hiddenNumber) {
+        } else if (player.getNumber() < hiddenNumber) {
             System.out.println("Entered number is less than hidden.");
         } else {            
-            System.out.println("\n!!!!!!!!!!!!!!!!\nCongratulations, " + playerName + "! You are a winner!");
-            System.out.println("The hidden number is " + playerNumber + ".\n!!!!!!!!!!!!!!!!");
+            System.out.println("\n!!!!!!!!!!!!!!!!\nCongratulations, " + player.getName() + "! You are a winner!");
+            System.out.println("The hidden number is " + player.getNumber() + ".\n!!!!!!!!!!!!!!!!");
         }
     }
 }
