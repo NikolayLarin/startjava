@@ -18,13 +18,22 @@ public class GuessNumberTest {
         System.out.println("Hallo, " + playerTwo.getName() + "!");
 
         GuessNumber gameForTwo = new GuessNumber(playerOne, playerTwo);
-        char userChoice;
+//        char userChoice;
+//        do {
+//            gameForTwo.startGuessNumberGame();
+//            do {
+//                System.out.print("\nDo you want to continue? (Y/N): ");
+//                userChoice = scanInput.next().charAt(0);
+//            } while (userChoice != 'Y' && userChoice != 'N');
+//        } while (userChoice == 'Y');
+
+        String userChoice;
         do {
             gameForTwo.startGuessNumberGame();
             do {
                 System.out.print("\nDo you want to continue? (Y/N): ");
-                userChoice = scanInput.next().charAt(0);
-            } while (userChoice != 'Y' && userChoice != 'N');
-        } while (userChoice == 'Y');
+                userChoice = scanInput.next();
+            } while (!userChoice.equals("Y") && !userChoice.equals("N"));
+        } while (userChoice.equals("Y"));
     }
 }
