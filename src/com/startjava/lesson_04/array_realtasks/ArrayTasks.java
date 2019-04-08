@@ -18,8 +18,10 @@ public class ArrayTasks {
             findLessThenAverage(array);
         } else if (user.getChoice() == 3){
             findTwoMinNumbers(array);
-        }  else if (user.getChoice() == 4) {
+        } else if (user.getChoice() == 4) {
             findSumMinMaxNumbers(array);
+        } else if (user.getChoice() == 5) {
+            startBubbleSort(array);
         }
     }
 
@@ -81,5 +83,25 @@ public class ArrayTasks {
             if (max < value) max = value;
         }
         System.out.println("\nВот наименьшее и наибольшее числа из массива: " + min + " и " + max);
+    }
+
+    private void startBubbleSort(int[] array) {
+        boolean isFinish = false;
+        int buff;
+        while (!isFinish) {
+            isFinish = true;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                    isFinish = false;
+                    buff = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = buff;
+                }
+            }
+        }
+        System.out.println("\nВот отсортированный массив: ");
+        for (int value : array) {
+            System.out.print(value + " ");
+        }
     }
 }
