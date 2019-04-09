@@ -1,47 +1,65 @@
 package com.startjava.lesson_04.calculator;
 
+import java.util.Scanner;
+
 public class Calculator {
-    private int[] nums = new int[2];
 
     private String expression;
-    int num1, num2;  /////  U D A L I T '
-    private char[] array = {'+', '-', '*', '/', '^', '%'};
+    private Scanner scanInput = new Scanner(System.in);
+    private int[] nums = new int[2];
+    private char mathOperation;
 
     public void setExpression(String expression) {
-        this.expression = expression;
+        this.expression = checkExpression(expression);
     }
 
-    public int[] getNums() {
-        return nums;
+    private String  checkExpression(String expression) {
+        boolean isExpressionChecked = expression.matches("\\s*\\d*\\s*[|\\+|\\-|\\*|\\/|\\^|\\%]\\s*\\d*\\s*");
+        while(!isExpressionChecked) {
+            System.out.print("Incorrect math expression, try again!: ");
+            expression = scanInput.nextLine();
+            isExpressionChecked = expression.matches("\\s*\\d*\\s*[|\\+|\\-|\\*|\\/|\\^|\\%]\\s*\\d*\\s*");
+        }
+        return expression;
     }
 
-    public void setNums(int[] nums) {
-        this.nums = nums;
+
+    public void startCalculate() {
+        splitIntoComponents(expression);
+        calculate();
     }
 
-    public void calculator() {
-        switch (expression) {
-            case "+":
-                System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+    private void splitIntoComponents(String expression) {
+        expression = expression.replaceAll("\\s+", "");
+        String[] components = expression.split("[+\\-*/^%]");
+        this.nums[0] = Integer.parseInt(components[0]);
+        this.nums[1] = Integer.parseInt(components[1]);
+        this.mathOperation = expression.charAt(expression.length()-components[1].length()-1);
+    }
+
+    private void calculate() {
+        switch (mathOperation) {
+            case '+':
+                System.out.println(nums[0] + " + " + nums[1] + " = " + (nums[0] + nums[1]));
                 break;
-            case "-":
-                System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+            case '-':
+                System.out.println(nums[0] + " - " + nums[1] + " = " + (nums[0] - nums[1]));
                 break;
-            case "*":
-                System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+            case '*':
+                System.out.println(nums[0] + " * " + nums[1] + " = " + (nums[0] * nums[1]));
                 break;
-            case "/":
-                System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+            case '/':
+                System.out.println(nums[0] + " / " + nums[1] + " = " + (nums[0] / nums[1]));
                 break;
-            case "^":
+            case '^':
                 long result = 1;
-                for (int i = 1; i <= num2; i++) {
-                    result *= num1;
+                for (int i = 1; i <= nums[1]; i++) {
+                    result *= nums[0];
                 }
-                System.out.println(num1 + "^" + num2 + " = " + result);
+                System.out.println(nums[0] + "^" + nums[1] + " = " + result);
                 break;
-            case "%":
-                System.out.println("The remainder of dividing " + num1 + " / " + num2 + " = " + (num1 % num2));
+            case '%':
+                System.out.println("The remainder of dividing " + nums[0] + " / " + nums[1] + " = " + (nums[0] % nums[1]));
                 break;
             default:
                 System.out.println("No operations applied on numbers");
