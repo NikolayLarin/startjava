@@ -13,7 +13,7 @@ public class Calculator {
         this.expression = checkExpression(expression);
     }
 
-    private String  checkExpression(String expression) {
+    private String checkExpression(String expression) {
         boolean isExpressionChecked = expression.matches("\\s*\\d*\\s*[|\\+|\\-|\\*|\\/|\\^|\\%]\\s*\\d*\\s*");
         while(!isExpressionChecked) {
             System.out.print("Incorrect math expression, try again!: ");
@@ -22,7 +22,6 @@ public class Calculator {
         }
         return expression;
     }
-
 
     public void startCalculate() {
         splitIntoComponents(expression);
@@ -40,26 +39,23 @@ public class Calculator {
     private void calculate() {
         switch (mathOperation) {
             case '+':
-                System.out.println(nums[0] + " + " + nums[1] + " = " + (nums[0] + nums[1]));
+                System.out.println(nums[0] + " + " + nums[1] + " = " + Math.addExact(nums[0], nums[1]));
                 break;
             case '-':
-                System.out.println(nums[0] + " - " + nums[1] + " = " + (nums[0] - nums[1]));
+                System.out.println(nums[0] + " - " + nums[1] + " = " + Math.subtractExact(nums[0], nums[1]));
                 break;
             case '*':
-                System.out.println(nums[0] + " * " + nums[1] + " = " + (nums[0] * nums[1]));
+                System.out.println(nums[0] + " * " + nums[1] + " = " + Math.multiplyExact(nums[0], nums[1]));
                 break;
             case '/':
-                System.out.println(nums[0] + " / " + nums[1] + " = " + (nums[0] / nums[1]));
+                System.out.println(nums[0] + " / " + nums[1] + " = " + Math.floorDiv(nums[0], nums[1]));
                 break;
             case '^':
-                long result = 1;
-                for (int i = 1; i <= nums[1]; i++) {
-                    result *= nums[0];
-                }
-                System.out.println(nums[0] + "^" + nums[1] + " = " + result);
+                System.out.println(nums[0] + "^" + nums[1] + " = " + Math.pow(nums[0], nums[1]));
                 break;
             case '%':
-                System.out.println("The remainder of dividing " + nums[0] + " / " + nums[1] + " = " + (nums[0] % nums[1]));
+                System.out.println("The remainder of dividing "
+                        + nums[0] + " / " + nums[1] + " = " + Math.IEEEremainder(nums[0], nums[1]));
                 break;
             default:
                 System.out.println("No operations applied on numbers");
