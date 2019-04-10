@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class GuessNumber {
 
     private int hiddenNumber = new Random().nextInt(100);
-    private int maxAttemptNumber = 10;
     private Scanner scanInput = new Scanner(System.in);
     private Player playerOne;
     private Player playerTwo;
+    private boolean isWinnerPresent;
 
     public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
@@ -19,7 +19,7 @@ public class GuessNumber {
 
     public void startGuessNumberGame() {
         int attemptNumber = 1;
-        while (attemptNumber <= maxAttemptNumber) {
+        while (attemptNumber <= 10 && !isWinnerPresent) {
             enterPlayerNumber(playerOne, attemptNumber);
             compareNumbers(playerOne, attemptNumber);
             enterPlayerNumber(playerTwo, attemptNumber);
@@ -43,7 +43,8 @@ public class GuessNumber {
     }
 
     private void compareNumbers(Player player, int attemptNumber) {
-        if (!isFailGuessNumberGame(player, attemptNumber)) {
+        if (attemptNumber <= 10) {
+                                                            System.out.println(hiddenNumber);
             if (player.getNumber(attemptNumber) > hiddenNumber) {
                 System.out.println("Entered number is more than hidden.");
             } else if (player.getNumber(attemptNumber) < hiddenNumber) {
@@ -53,20 +54,15 @@ public class GuessNumber {
                         player.getName() + "! You are a winner!\n" +
                         "The hidden number is " + player.getNumber(attemptNumber) + ".\n" +
                         "!!!!!!!!!!!!!!!!\nYou guessed it on the " + attemptNumber + " attempt");
+                this.isWinnerPresent = true;
                 printAttemptsNumbers(player, attemptNumber);
+                setInitialConditions(player, attemptNumber);
             }
         } else {
-            printAttemptsNumbers(player, attemptNumber);
-        }
-    }
 
-    private boolean isFailGuessNumberGame(Player player,  int attemptNumber) {
-        boolean isFailGuessNumberGame = false;
-        if (attemptNumber == 10) {
-            isFailGuessNumberGame = true;
             printAttemptsNumbers(player, attemptNumber);
+            setInitialConditions(player, attemptNumber);
         }
-        return isFailGuessNumberGame;
     }
 
     private void printAttemptsNumbers(Player player, int attemptNumber) {
@@ -74,6 +70,13 @@ public class GuessNumber {
         System.out.print("\n" + player.getName() + " entered thees numbers: " );
         for (int num : number) {
             System.out.print(num + " ");
+        }
+    }
+
+    private void setInitialConditions(Player player, int attemptNumber) {
+        this.isWinnerPresent = false;
+        for (int i = 1; i <= attemptNumber; i++) {
+            player.setNumber(i, 0);
         }
     }
 }

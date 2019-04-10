@@ -32,7 +32,7 @@ public class GuessNumberTest {
             gameForTwo.startGuessNumberGame();
             do {
                 System.out.print("\nDo you want to continue? (Y/N): ");
-                userChoice = scanInput.next();
+                userChoice = scanInput.nextLine();
             } while (!userChoice.equals("Y") && !userChoice.equals("N"));
         } while (userChoice.equals("Y"));
     }

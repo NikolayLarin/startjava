@@ -14,11 +14,11 @@ public class Player {
     }
 
     public void setNumber(int attemptNumber, int number) {
-        this.number[attemptNumber-1] = number;
+        this.number[attemptNumber - 1] = number;
     }
 
     public int getNumber(int attemptNumber) {
-        return number[attemptNumber];
+        return number[attemptNumber - 1];
     }
 
     public int[] getNumber() {
