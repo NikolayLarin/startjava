@@ -17,9 +17,9 @@ public class CalculatorMain {
             calcPure.setExpression(scanInput.nextLine());
             calcPure.startCalculate();
             do  {
-                System.out.print("Do you want to continue? (Y/N): ");
+                System.out.print("Do you want to continue? (<space> if Yes / or N if No): ");
                 userChoice = scanInput.nextLine();
-            } while (!userChoice.equals("Y") && !userChoice.equals("N"));
-        } while (userChoice.equals("Y"));
+            } while (!userChoice.equals(" ") && !userChoice.equals("N"));
+        } while (userChoice.equals(" "));
     }
 }
