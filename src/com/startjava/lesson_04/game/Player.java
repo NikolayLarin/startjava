@@ -1,5 +1,7 @@
 package com.startjava.lesson_04.game;
 
+import java.util.Arrays;
+
 public class Player {
 
     private String name;
@@ -21,7 +23,11 @@ public class Player {
         return number[attemptNumber - 1];
     }
 
-    public int[] getNumber() {
-        return number;
+    public int[] getCopyOfNumber(int attemptNumber) {
+        return Arrays.copyOf(number, attemptNumber);
+    }
+
+    public void setInitialConditions(int attemptNumber) {
+        Arrays.fill(this.number, 0, attemptNumber - 1, 0);
     }
 }

@@ -11,7 +11,7 @@ public class GuessNumber {
     private Player playerOne;
     private Player playerTwo;
     private int attemptNumber;
-    private boolean isWinnerPresent;
+    private boolean isWin;
 
     public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
@@ -19,10 +19,8 @@ public class GuessNumber {
     }
 
     public void startGuessNumberGame() {
-        hiddenNumber = new Random().nextInt(100);
-        attemptNumber = 1;
-        isWinnerPresent = false;
-        while (attemptNumber <= 10 && !isWinnerPresent) {
+        initStart();
+        while (attemptNumber <= 10 && !isWin) {
             enterPlayerNumber(playerOne);
             compareNumbers(playerOne);
             enterPlayerNumber(playerTwo);
@@ -31,36 +29,65 @@ public class GuessNumber {
         }
     }
 
+    private void initStart() {
+        hiddenNumber = new Random().nextInt(100);
+        attemptNumber = 1;
+        isWin = false;
+    }
+
     private void enterPlayerNumber(Player player) {
         int number;
         do {
-            System.out.print("\n" + player.getName() +", it's your " + attemptNumber +
-                    " attempt, enter your number: ");
-            number = scanInput.nextInt();
-            if (number < 0 || number > 100) {
-                System.out.println(player.getName() + ", you entered incorrect number.");
-                System.out.println("It must be from 0 to 100 inclusive. \nTry again!");
-            }
+            number = enterNumber(player);
+            validateNumber(player, number);
         } while (number < 0 || number > 100);
         player.setNumber(attemptNumber, number);
+    }
 
+    private int enterNumber(Player player) {
+        System.out.print("\n" + player.getName() +", it's your " + attemptNumber +
+                " attempt, enter your number: ");
+        return scanInput.nextInt();
+    }
+
+    private void validateNumber(Player player, int number) {
+        if (number < 0 || number > 100) {
+            System.out.println(player.getName() + ", you entered incorrect number.");
+            System.out.println("It must be from 0 to 100 inclusive. \nTry again!");
+        }
     }
 
     private void compareNumbers(Player player) {
-        if (attemptNumber <= 10) {
-            if (player.getNumber(attemptNumber) > hiddenNumber) {
-                System.out.println("Entered number is more than hidden.");
-            } else if (player.getNumber(attemptNumber) < hiddenNumber) {
-                System.out.println("Entered number is less than hidden.");
-            } else {
-                System.out.println("\n!!!!!!!!!!!!!!!!\nCongratulations, " +
-                        player.getName() + "! You are a winner!\n" +
-                        "The hidden number is " + player.getNumber(attemptNumber) + ".\n" +
-                        "!!!!!!!!!!!!!!!!\nYou guessed it on the " + attemptNumber + " attempt");
-                this.isWinnerPresent = true;
-                finishGame(player);
-            }
+            checkMore(player);
+            checkLess(player);
+            checkWin(player);
+            checkMaxAttempts(player);
+    }
+
+    private void checkMore(Player player) {
+        if (player.getNumber(attemptNumber) > hiddenNumber) {
+            System.out.println("Entered number is more than hidden.");
         }
+    }
+
+    private void checkLess(Player player) {
+        if (player.getNumber(attemptNumber) < hiddenNumber) {
+            System.out.println("Entered number is less than hidden.");
+        }
+    }
+
+    private void checkWin(Player player) {
+        if (player.getNumber(attemptNumber) == hiddenNumber) {
+            System.out.println("\n!!!!!!!!!!!!!!!!\nCongratulations, " +
+                    player.getName() + "! You are a winner!\n" +
+                    "The hidden number is " + player.getNumber(attemptNumber) + ".\n" +
+                    "!!!!!!!!!!!!!!!!\nYou guessed it on the " + attemptNumber + " attempt");
+            isWin = true;
+            finishGame(player);
+        }
+    }
+
+    private void checkMaxAttempts(Player player) {
         if (attemptNumber == 10) {
             System.out.print("\nPlayer " + player.getName() + "'s attempts ended!");
             finishGame(player);
@@ -73,17 +100,12 @@ public class GuessNumber {
     }
 
     private void printAttemptsNumbers(Player player) {
-        int[] number = Arrays.copyOf(player.getNumber(), attemptNumber);
+        int[] copyOfNumber = player.getCopyOfNumber(attemptNumber);
         System.out.println("\n" + player.getName() + " entered these numbers: " );
-        for (int num : number) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(copyOfNumber));
     }
 
     private void setInitialConditions(Player player) {
-        for (int i = 1; i <= attemptNumber; i++) {
-            player.setNumber(i, 0);
-        }
+      player.setInitialConditions(attemptNumber);
     }
 }
