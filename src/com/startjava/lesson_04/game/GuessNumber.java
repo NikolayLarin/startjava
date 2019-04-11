@@ -48,7 +48,6 @@ public class GuessNumber {
 
     private void compareNumbers(Player player) {
         if (attemptNumber <= 10) {
-                                                            System.out.println(hiddenNumber);
             if (player.getNumber(attemptNumber) > hiddenNumber) {
                 System.out.println("Entered number is more than hidden.");
             } else if (player.getNumber(attemptNumber) < hiddenNumber) {
