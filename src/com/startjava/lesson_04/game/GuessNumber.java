@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    private int hiddenNumber = new Random().nextInt(100);
+    private int hiddenNumber;
     private Scanner scanInput = new Scanner(System.in);
     private Player playerOne;
     private Player playerTwo;
+    private int attemptNumber;
     private boolean isWinnerPresent;
 
     public GuessNumber(Player playerOne, Player playerTwo) {
@@ -18,20 +19,23 @@ public class GuessNumber {
     }
 
     public void startGuessNumberGame() {
-        int attemptNumber = 1;
+        hiddenNumber = new Random().nextInt(100);
+        attemptNumber = 1;
+        isWinnerPresent = false;
         while (attemptNumber <= 10 && !isWinnerPresent) {
-            enterPlayerNumber(playerOne, attemptNumber);
-            compareNumbers(playerOne, attemptNumber);
-            enterPlayerNumber(playerTwo, attemptNumber);
-            compareNumbers(playerTwo, attemptNumber);
+            enterPlayerNumber(playerOne);
+            compareNumbers(playerOne);
+            enterPlayerNumber(playerTwo);
+            compareNumbers(playerTwo);
             attemptNumber++;
         }
     }
 
-    private void enterPlayerNumber(Player player, int attemptNumber) {
+    private void enterPlayerNumber(Player player) {
         int number;
         do {
-            System.out.print("\n" + player.getName() +", enter your number: ");
+            System.out.print("\n" + player.getName() +", it's your " + attemptNumber +
+                    " attempt, enter your number: ");
             number = scanInput.nextInt();
             if (number < 0 || number > 100) {
                 System.out.println(player.getName() + ", you entered incorrect number.");
@@ -42,7 +46,7 @@ public class GuessNumber {
 
     }
 
-    private void compareNumbers(Player player, int attemptNumber) {
+    private void compareNumbers(Player player) {
         if (attemptNumber <= 10) {
                                                             System.out.println(hiddenNumber);
             if (player.getNumber(attemptNumber) > hiddenNumber) {
@@ -55,26 +59,30 @@ public class GuessNumber {
                         "The hidden number is " + player.getNumber(attemptNumber) + ".\n" +
                         "!!!!!!!!!!!!!!!!\nYou guessed it on the " + attemptNumber + " attempt");
                 this.isWinnerPresent = true;
-                printAttemptsNumbers(player, attemptNumber);
-                setInitialConditions(player, attemptNumber);
+                finishGame(player);
             }
-        } else {
-
-            printAttemptsNumbers(player, attemptNumber);
-            setInitialConditions(player, attemptNumber);
+        }
+        if (attemptNumber == 10) {
+            System.out.print("\nPlayer " + player.getName() + "'s attempts ended!");
+            finishGame(player);
         }
     }
 
-    private void printAttemptsNumbers(Player player, int attemptNumber) {
+    private void finishGame(Player player) {
+        printAttemptsNumbers(player);
+        setInitialConditions(player);
+    }
+
+    private void printAttemptsNumbers(Player player) {
         int[] number = Arrays.copyOf(player.getNumber(), attemptNumber);
-        System.out.print("\n" + player.getName() + " entered thees numbers: " );
+        System.out.println("\n" + player.getName() + " entered these numbers: " );
         for (int num : number) {
             System.out.print(num + " ");
         }
+        System.out.println();
     }
 
-    private void setInitialConditions(Player player, int attemptNumber) {
-        this.isWinnerPresent = false;
+    private void setInitialConditions(Player player) {
         for (int i = 1; i <= attemptNumber; i++) {
             player.setNumber(i, 0);
         }
