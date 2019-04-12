@@ -50,14 +50,12 @@ public class GuessNumber {
     }
 
     private boolean isValidNumber(Player player, int number) {
-        boolean isValidNumber = false;
         if (number < 0 || number > 100) {
             System.out.println(player.getName() + ", you entered incorrect number.");
             System.out.println("It must be from 0 to 100 inclusive. \nTry again!");
-        } else {
-            isValidNumber = true;
+            return false;
         }
-        return isValidNumber;
+        return true;
     }
 
     private void compareNumbers(Player player) {
@@ -91,6 +89,6 @@ public class GuessNumber {
     }
 
     private void setInitialConditions(Player player) {
-      player.setInitialConditions(attemptNumber);
+        player.setInitialConditions(attemptNumber);
     }
 }
