@@ -1,9 +1,9 @@
-﻿-- psql -U postgres
--- \i create_db.sql     - считываем и выполняем команды из заданного файла
+﻿-- \i create_db.sql     - считываем и выполняем команды из заданного файла
 -- \c jaegers;          - подключаемся к базе jaegers  
 -- неплохое введение тут: https://metanit.com/sql/postgresql/1.1.php
+-- psql -U postgres
 
-CREATE DATABASE Jaegers;
+CREATE DATABASE jaegers;
 
 \c jaegers;
 

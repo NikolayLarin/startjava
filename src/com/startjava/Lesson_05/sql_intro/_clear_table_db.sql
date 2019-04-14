@@ -1,4 +1,4 @@
--- psql -U postgres
+﻿-- \ psql -U postgres
 -- \i _clear_table_db.sql
 
 \c jaegers;
