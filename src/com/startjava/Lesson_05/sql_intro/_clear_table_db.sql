@@ -2,6 +2,6 @@
 -- \i _clear_table_db.sql
 
 \c jaegers;
-DELETE FROM jaegers;                             -- очистить всю таблицу
-ALTER SEQUENCE jaegers_id_seq RESTART WITH 1;    -- назначить автоинеркменту единицу
-SELECT * FROM jaegers;                           -- вывести все строки таблицы
+DELETE FROM jaegers;                             -- РѕС‡РёСЃС‚РёС‚СЊ РІСЃСЋ С‚Р°Р±Р»РёС†Сѓ
+ALTER SEQUENCE jaegers_id_seq RESTART WITH 1;    -- РЅР°Р·РЅР°С‡РёС‚СЊ Р°РІС‚РѕРёРЅРµСЂРєРјРµРЅС‚Сѓ РµРґРёРЅРёС†Сѓ
+SELECT * FROM jaegers;                           -- РІС‹РІРµСЃС‚Рё РІСЃРµ СЃС‚СЂРѕРєРё С‚Р°Р±Р»РёС†С‹
