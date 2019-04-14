@@ -1,43 +1,43 @@
 --\i queries.sql
 
-SELECT * FROM jaegers;                       -- вывод всей таблицы
+SELECT * FROM jaegers;                       -- РІС‹РІРѕРґ РІСЃРµР№ С‚Р°Р±Р»РёС†С‹
 
-SELECT * FROM jaegers                        -- отображаем только не уничтоженных роботов
+SELECT * FROM jaegers                        -- РѕС‚РѕР±СЂР°Р¶Р°РµРј С‚РѕР»СЊРєРѕ РЅРµ СѓРЅРёС‡С‚РѕР¶РµРЅРЅС‹С… СЂРѕР±РѕС‚РѕРІ
 WHERE NOT status = 'Destroyed';
 
-SELECT * FROM jaegers                        -- отобразите роботов серий Mark-2 и Mark-6
+SELECT * FROM jaegers                        -- РѕС‚РѕР±СЂР°Р·РёС‚Рµ СЂРѕР±РѕС‚РѕРІ СЃРµСЂРёР№ Mark-2 Рё Mark-6
 WHERE mark = 'Mark-6' OR mark = 'Mark-2';
 
-SELECT * FROM jaegers                        -- сортируем таблицу по возрастанию в столбце mark
+SELECT * FROM jaegers                        -- Г±Г®Г°ГІГЁГ°ГіГҐГ¬ ГІГ ГЎГ«ГЁГ¶Гі ГЇГ® ГўГ®Г§Г°Г Г±ГІГ Г­ГЁГѕ Гў Г±ГІГ®Г«ГЎГ¶ГҐ mark
 ORDER BY mark;
 
-SELECT * FROM jaegers                        -- сортируем таблицу по убыванию в столбце mark
+SELECT * FROM jaegers                        -- Г±Г®Г°ГІГЁГ°ГіГҐГ¬ ГІГ ГЎГ«ГЁГ¶Гі ГЇГ® ГіГЎГ»ГўГ Г­ГЁГѕ Гў Г±ГІГ®Г«ГЎГ¶ГҐ mark
 ORDER BY mark DESC;
 
-SELECT * FROM jaegers                        -- отображаем самого старого робота
+SELECT * FROM jaegers                        -- Г®ГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г±Г Г¬Г®ГЈГ® Г±ГІГ Г°Г®ГЈГ® Г°Г®ГЎГ®ГІГ 
 ORDER BY launch
 LIMIT 1;
 
-SELECT * FROM jaegers                        -- отображаем роботов, которые уничтожили больше всех kaiju
+SELECT * FROM jaegers                        -- Г®ГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г°Г®ГЎГ®ГІГ®Гў, ГЄГ®ГІГ®Г°Г»ГҐ ГіГ­ГЁГ·ГІГ®Г¦ГЁГ«ГЁ ГЎГ®Г«ГјГёГҐ ГўГ±ГҐГµ kaiju
 ORDER BY kaijuKill DESC
 LIMIT 1;
 
-SELECT * FROM jaegers                        -- отображаем роботов, которые уничтожили меньше всех kaiju
+SELECT * FROM jaegers                        -- Г®ГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г°Г®ГЎГ®ГІГ®Гў, ГЄГ®ГІГ®Г°Г»ГҐ ГіГ­ГЁГ·ГІГ®Г¦ГЁГ«ГЁ Г¬ГҐГ­ГјГёГҐ ГўГ±ГҐГµ kaiju
 ORDER BY kaijuKill
 LIMIT 1;
 
-SELECT AVG(weight) AS Average_weight FROM jaegers;  --отображаем средний вес роботов
+SELECT AVG(weight) AS Average_weight FROM jaegers;  --Г®ГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г±Г°ГҐГ¤Г­ГЁГ© ГўГҐГ± Г°Г®ГЎГ®ГІГ®Гў
 
 
 SELECT * FROM jaegers                               
 WHERE NOT status = 'Destroyed';
-UPDATE jaegers                                      -- увеличиваем на единицу количество уничтоженных
-SET kaijuKill = kaijuKill + 1                       -- kaiju у роботов, которые
-WHERE NOT status = 'Destroyed';                     -- до сих пор не разрушены 
-SELECT * FROM jaegers                               -- и отображаем
+UPDATE jaegers                                      -- ГіГўГҐГ«ГЁГ·ГЁГўГ ГҐГ¬ Г­Г  ГҐГ¤ГЁГ­ГЁГ¶Гі ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ­ГЁГ·ГІГ®Г¦ГҐГ­Г­Г»Гµ
+SET kaijuKill = kaijuKill + 1                       -- kaiju Гі Г°Г®ГЎГ®ГІГ®Гў, ГЄГ®ГІГ®Г°Г»ГҐ
+WHERE NOT status = 'Destroyed';                     -- Г¤Г® Г±ГЁГµ ГЇГ®Г° Г­ГҐ Г°Г Г§Г°ГіГёГҐГ­Г» 
+SELECT * FROM jaegers                               -- ГЁ Г®ГІГ®ГЎГ°Г Г¦Г ГҐГ¬
 WHERE NOT status = 'Destroyed';
 ;
 
-DELETE FROM jaegers                         -- удаляем уничтоженных роботов
+DELETE FROM jaegers                         -- ГіГ¤Г Г«ГїГҐГ¬ ГіГ­ГЁГ·ГІГ®Г¦ГҐГ­Г­Г»Гµ Г°Г®ГЎГ®ГІГ®Гў
 WHERE status = 'Destroyed';
 SELECT * FROM jaegers;
