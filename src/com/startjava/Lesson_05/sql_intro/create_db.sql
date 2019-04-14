@@ -7,9 +7,8 @@ CREATE DATABASE Jaegers;
 
 \c jaegers;
 
-CREATE TABLE jaegers
-(
-    id         SMALLSERIAL PRIMARY KEY,        -- идентийикатор с автоинкрементом
+CREATE TABLE jaegers(
+    id         SMALLSERIAL PRIMARY KEY,        -- идентификатор с автоинкрементом
     modelName  VARCHAR(50),                    -- имя робота
     mark       VARCHAR(20),                    -- модель робота
     height     NUMERIC(5, 2),                  -- высота робота, м

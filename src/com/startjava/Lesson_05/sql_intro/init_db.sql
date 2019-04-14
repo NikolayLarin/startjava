@@ -1,5 +1,5 @@
 -- DELETE FROM jaegers;                             очистить всю таблицу
--- ALTER SEQUENCE jaegers_id_seq RESTART WITH 1;    назначить автоинеркменту единицу
+-- ALTER SEQUENCE jaegers_id_seq RESTART WITH 1;    назначить автоинкременту единицу
 -- SELECT * FROM jaegers;                           вывести все строки таблицы
 --\i init_db.sql
 
@@ -16,7 +16,6 @@ VALUES
 ('Titan Redeemer', 'Mark-6', 68.35, 1829.3, 'Active', 'China', '2025-03-18', 1),
 ('Saber Athena', 'Mark-7', 76.91, 1628.0, 'Destroyed', 'Russia', '2033-12-20', 1),
 ('November Ajax', 'Mark-6', 78.94, 1899.5, 'Active', 'Russia', '2025-11-16', 1)
-
 ;
 
 SELECT * FROM jaegers;
