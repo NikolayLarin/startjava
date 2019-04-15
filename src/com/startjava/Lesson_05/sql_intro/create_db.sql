@@ -1,5 +1,5 @@
-﻿-- \i create_db.sql     - считываем и выполняем команды из заданного файла
--- \c jaegers;          - подключаемся к базе jaegers  
+-- \i create_db.sql     - считываем и выполняем команды из заданного файла
+-- \c jaegers;          - подключаемся к базе jaegers
 -- неплохое введение тут: https://metanit.com/sql/postgresql/1.1.php
 -- psql -U postgres
 
@@ -17,4 +17,5 @@ create TABLE jaegers(
     origin    VARCHAR(20),
     launch    DATE,
     --DATE: yyyy-mm-dd
-    kaijuKill INTEGER;
+    kaijuKill INTEGER
+);

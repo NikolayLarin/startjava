@@ -5,7 +5,7 @@
 
 insert into jaegers (modelName, mark, height, weight, status, origin, launch, kaijuKill)
 values
-    ('Obsidian Fury',  'Mark-2', 71.3,  1765.1, 'Destroyed', 'USA',       '2018-09-25', 2),
+    ('Obsidian Furyi',  'Mark-2', 71.3,  1765.1, 'Destroyed', 'USA',       '2018-09-25', 2),
     ('Striker Eureka', 'Mark-5', 76.2,  1850.0, 'Destroyed', 'Australia', '2019-11-02', 2),
     ('Bracer Phoenix', 'Mark-5', 70.91, 2128.0, 'Destroyed', 'China',     '2025-11-01', 1),
     ('Brawler Yukon',  'Mark-1', 69.32, 1858.0, 'Destroyed', 'USA',       '2015-01-30', 2),

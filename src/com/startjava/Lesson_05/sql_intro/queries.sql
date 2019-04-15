@@ -19,13 +19,16 @@ select * from jaegers
 order by mark desc;
 -- сортируем таблицу по убыванию в столбце mark
 
-select min(launch) FROM jaegers
+select * from jaegers
+where launch = (select min(launch)from jaegers);
 -- отображаем самого старого робота
 
-select max(kaijuKill) FROM jaegers
+select * from jaegers
+where kaijuKill = (select max(kaijuKill) from jaegers);
 -- отображаем роботов, уничтоживших больше всех kaiju
 
-select min(kaijuKill) FROM jaegers
+select * from jaegers
+where kaijuKill = (select min(kaijuKill) from jaegers);
 -- отображаем роботов, уничтоживших меньше всех kaiju
 
 select avg(weight) as Average_weight from jaegers;
