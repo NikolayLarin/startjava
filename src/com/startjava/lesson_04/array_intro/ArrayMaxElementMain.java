@@ -6,11 +6,11 @@ public class ArrayMaxElementMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите длину массива: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РґР»РёРЅСѓ РјР°СЃСЃРёРІР°: ");
         int arrayLenght = scanner.nextInt();
         int[] numbers = new int[arrayLenght];
 
-        System.out.print("Заполните массив целыми числами через пробел: ");
+        System.out.print("Р—Р°РїРѕР»РЅРёС‚Рµ РјР°СЃСЃРёРІ С†РµР»С‹РјРё С‡РёСЃР»Р°РјРё С‡РµСЂРµР· РїСЂРѕР±РµР»: ");
         for (int i = 0; i < arrayLenght; i++) {
             numbers[i] = scanner.nextInt();
         }
@@ -21,6 +21,6 @@ public class ArrayMaxElementMain {
                 max = numbers[i+1];
             }
         }
-        System.out.println("Максимальное число = " + max);
+        System.out.println("РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ = " + max);
     }
 }

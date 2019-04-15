@@ -10,8 +10,8 @@ public class ArrayMain {
 
         System.out.println(numbers.length);
         System.out.println(numbers1.length);
-        System.out.println("[ - одномерный массив типа I - инт " +
-                "и его хэш-код после разделителя @: " + numbers);
+        System.out.println("[ - РѕРґРЅРѕРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ С‚РёРїР° I - РёРЅС‚ " +
+                "Рё РµРіРѕ С…СЌС€-РєРѕРґ РїРѕСЃР»Рµ СЂР°Р·РґРµР»РёС‚РµР»СЏ @: " + numbers);
         for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + "; ");
         }

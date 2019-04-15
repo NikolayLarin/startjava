@@ -27,7 +27,7 @@ public class ArrayTasks {
 
     private int[] activateArray(User user) {
         int[] array = new int[user.getNumber()];
-        System.out.println("\nВот значения массива: ");
+        System.out.println("\nР’РѕС‚ Р·РЅР°С‡РµРЅРёСЏ РјР°СЃСЃРёРІР°: ");
         for (int i = 0; i < user.getNumber(); i++) {
             array[i] = new Random().nextInt(201);
             System.out.print(array[i] + " ");
@@ -40,12 +40,12 @@ public class ArrayTasks {
         for (int value : array) {
             if ((value % 2) == 0) sum += value;
         }
-        System.out.println("\nСумма его четных элементов равна " + sum);
+        System.out.println("\nРЎСѓРјРјР° РµРіРѕ С‡РµС‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ СЂР°РІРЅР° " + sum);
     }
 
     private void findLessThenAverage(int[] array) {
         int average = findAverage(array);
-        System.out.println("Вот значения, которые  меньше среднего значения по масиву с указанием номера ячейки: ");
+        System.out.println("Р’РѕС‚ Р·РЅР°С‡РµРЅРёСЏ, РєРѕС‚РѕСЂС‹Рµ  РјРµРЅСЊС€Рµ СЃСЂРµРґРЅРµРіРѕ Р·РЅР°С‡РµРЅРёСЏ РїРѕ РјР°СЃРёРІСѓ СЃ СѓРєР°Р·Р°РЅРёРµРј РЅРѕРјРµСЂР° СЏС‡РµР№РєРё: ");
         for (int i = 0; i < array.length; i++) {
             if (array[i] < average){
                 System.out.print(array[i] +" [" + i + "] " );
@@ -56,7 +56,7 @@ public class ArrayTasks {
     private int findAverage(int[] array) {
         int sum = 0;
         for (int value : array) sum += value;
-        System.out.println("\nВот среднее значение: " + sum / array.length + "\n");
+        System.out.println("\nпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + sum / array.length + "\n");
         return sum / array.length;
     }
 
@@ -73,7 +73,7 @@ public class ArrayTasks {
                     min2 = array[i];
             }
         }
-        System.out.println("\nВот два наименьших числа из массива: " + min1 + " и " + min2);
+        System.out.println("\nпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + min1 + " пїЅ " + min2);
     }
 
     private void findSumMinMaxNumbers(int[] array) {
@@ -82,7 +82,7 @@ public class ArrayTasks {
             if (min > value) min = value;
             if (max < value) max = value;
         }
-        System.out.println("\nВот наименьшее и наибольшее числа из массива: " + min + " и " + max);
+        System.out.println("\nпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + min + " пїЅ " + max);
     }
 
     private void startBubbleSort(int[] array) {
@@ -99,7 +99,7 @@ public class ArrayTasks {
                 }
             }
         }
-        System.out.println("\nВот отсортированный массив: ");
+        System.out.println("\nпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ");
         for (int value : array) {
             System.out.print(value + " ");
         }
