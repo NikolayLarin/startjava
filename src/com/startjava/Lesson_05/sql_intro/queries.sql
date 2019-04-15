@@ -1,43 +1,51 @@
 --\i queries.sql
 
-SELECT * FROM jaegers;                       -- вывод всей таблицы
+select * from jaegers;
+-- вывод всей таблицы
 
-SELECT * FROM jaegers                        -- отображаем только не уничтоженных роботов
-WHERE NOT status = 'Destroyed';
+select * from jaegers
+where not status = 'Destroyed';
+-- отображаем только не уничтоженных роботов
 
-SELECT * FROM jaegers                        -- отображаем роботов серий Mark-2 и Mark-6
-WHERE mark = 'Mark-6' OR mark = 'Mark-2';
+select * from jaegers
+where mark = 'Mark-2' or mark = 'Mark-6';
+-- отображаем роботов серий Mark-2 и Mark-6
 
-SELECT * FROM jaegers                        -- сортируем таблицу по возрастанию в столбцу mark
-ORDER BY mark;
+select * from jaegers
+order by mark;
+-- сортируем таблицу по возрастанию в столбце mark
 
-SELECT * FROM jaegers                        -- сортируем таблицу по убыванию в столбцу mark
-ORDER BY mark DESC;
+select * from jaegers
+order by mark desc;
+-- сортируем таблицу по убыванию в столбце mark
 
-SELECT * FROM jaegers                        -- отображаем самого старого робота
-ORDER BY launch
-LIMIT 1;
+select min(launch) FROM jaegers
+-- отображаем самого старого робота
 
-SELECT * FROM jaegers                        -- отображаем роботов, уничтоживших больше всех kaiju
-ORDER BY kaijuKill DESC
-LIMIT 1;
+select max(kaijuKill) FROM jaegers
+-- отображаем роботов, уничтоживших больше всех kaiju
 
-SELECT * FROM jaegers                        -- отображаем роботов, уничтоживших меньше всех kaiju
-ORDER BY kaijuKill
-LIMIT 1;
+select min(kaijuKill) FROM jaegers
+-- отображаем роботов, уничтоживших меньше всех kaiju
 
-SELECT AVG(weight) AS Average_weight FROM jaegers;   -- отображаем средний вес роботов
+select avg(weight) as Average_weight from jaegers;
+-- отображаем средний вес роботов
 
-SELECT * FROM jaegers                               
-WHERE NOT status = 'Destroyed';              -- отображаем неуничтоженных роботов
+select * from jaegers
+where not status = 'Destroyed';
+-- отображаем неуничтоженных роботов
 
-UPDATE jaegers                               -- увеличиваем на единицу количество уничтоженных
-SET kaijuKill = kaijuKill + 1                -- kaiju у роботов, которые
-WHERE NOT status = 'Destroyed';              -- до сих пор не разрушены
+update jaegers
+set kaijuKill = kaijuKill + 1
+where not status = 'Destroyed';
+-- увеличиваем на единицу количество уничтоженных
+-- kaiju у неуничтоженных роботов
 
-SELECT * FROM jaegers                        -- и отображаем
-WHERE NOT status = 'Destroyed';
+select * from jaegers
+where not status = 'Destroyed';
+-- и отображаем
 
-DELETE FROM jaegers                          -- удаляем уничтоженных роботов
-WHERE status = 'Destroyed';
-SELECT * FROM jaegers;
+delete from jaegers
+where status = 'Destroyed';
+select * from jaegers;
+-- удаляем уничтоженных роботов и отображаем

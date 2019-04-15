@@ -3,18 +3,18 @@
 -- неплохое введение тут: https://metanit.com/sql/postgresql/1.1.php
 -- psql -U postgres
 
-CREATE DATABASE jaegers;
+create DATABASE jaegers;
 
 \c jaegers;
 
-CREATE TABLE jaegers(
-    id         SMALLSERIAL PRIMARY KEY,        -- идентификатор с автоинкрементом
-    modelName  VARCHAR(50),                    -- имя робота
-    mark       VARCHAR(20),                    -- модель робота
-    height     NUMERIC(5, 2),                  -- высота робота, м
-    weight     NUMERIC(6, 2),                  -- масса робота, т
-    status     VARCHAR(20),                    -- статус
-    origin     VARCHAR(20),                    -- страна производства
-    launch     DATE,                           -- ввод в эксплуатацию, гггг-мм-дд
-    kaijuKill  INTEGER                         -- количество убитых кадзю
-);
+create TABLE jaegers(
+    id        SMALLSERIAL PRIMARY KEY,
+    modelName VARCHAR(50),
+    mark      VARCHAR(20),
+    height    NUMERIC(5, 2),
+    weight    NUMERIC(6, 2),
+    status    VARCHAR(20),
+    origin    VARCHAR(20),
+    launch    DATE,
+    --DATE: yyyy-mm-dd
+    kaijuKill INTEGER;
