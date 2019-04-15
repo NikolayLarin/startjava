@@ -3,6 +3,9 @@
 
 \c jaegers;
 
-DELETE FROM jaegers;                             -- очистить всю таблицу
-ALTER SEQUENCE jaegers_id_seq RESTART WITH 1;    -- назначить автоинкременту единицу
-SELECT * FROM jaegers;                           -- вывести все строки таблицы
+delete from jaegers;
+-- очистить всю таблицу
+alter sequence jaegers_id_seq RESTART with 1;
+-- назначить автоинкременту единицу
+select * from jaegers;
+-- вывести все строки таблицы
