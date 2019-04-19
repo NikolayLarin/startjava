@@ -20,7 +20,7 @@ public class ArrayTasksMain {
         do {
             System.out.print("\nВведите длину массива: ");
             user.setNumber(scanner.nextInt());
-            System.out.print("(\"Выберете желаемую операцию и введите её номер: ");
+            System.out.print("\"Выберете желаемую операцию и введите её номер: ");
             user.setChoice(scanner.nextInt());
             ArrayTasks arrayTasks = new ArrayTasks(user);
             arrayTasks.startOperate(user);

@@ -56,7 +56,7 @@ public class ArrayTasks {
     private int findAverage(int[] array) {
         int sum = 0;
         for (int value : array) sum += value;
-        System.out.println("\n��� ������� ��������: " + sum / array.length + "\n");
+        System.out.println("\nВот среднее значение массива: " + sum / array.length + "\n");
         return sum / array.length;
     }
 
@@ -73,7 +73,7 @@ public class ArrayTasks {
                     min2 = array[i];
             }
         }
-        System.out.println("\n��� ��� ���������� ����� �� �������: " + min1 + " � " + min2);
+        System.out.println("\nВот два минимальных значения в массиве: " + min1 + " и " + min2);
     }
 
     private void findSumMinMaxNumbers(int[] array) {
@@ -82,7 +82,7 @@ public class ArrayTasks {
             if (min > value) min = value;
             if (max < value) max = value;
         }
-        System.out.println("\n��� ���������� � ���������� ����� �� �������: " + min + " � " + max);
+        System.out.println("\nВот минимальное и максимальное значение в массиве " + min + " и " + max);
     }
 
     private void startBubbleSort(int[] array) {
@@ -99,7 +99,7 @@ public class ArrayTasks {
                 }
             }
         }
-        System.out.println("\n��� ��������������� ������: ");
+        System.out.println("\nВот отсортированный массив ");
         for (int value : array) {
             System.out.print(value + " ");
         }
